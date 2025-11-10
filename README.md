@@ -1,7 +1,7 @@
 # URL Shortener System Design
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub stars](https://img.shields.io/github/stars/angrlino-valeta/url-shortener-design.svg?style=social)](https://github.com/angelino-valeta/url-shortener-design/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/angrlino-valeta/url-shortener-system-design.svg?style=social)](https://github.com/angelino-valeta/url-shortener-system-design/stargazers)
 
 This repository outlines a scalable system design for a URL shortener service, akin to Bitly or TinyURL. It encompasses API endpoints, functional and non-functional requirements, capacity planning, hashing mechanisms, collision resolution, and an evolutionary architecture. The design prioritizes high throughput (100 million daily URLs), minimal latency, 99.99% availability, and data retention for 10 years.
 
