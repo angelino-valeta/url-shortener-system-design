@@ -1,24 +1,31 @@
 package utils
 
-import "go.uber.org/zap"
+import (
+	"go.uber.org/zap"
+	"go.uber.org/zap/zapcore"
+)
 
 // NewLogger setup
 func NewLogger(level string) *zap.Logger {
 	config := zap.NewProductionConfig()
-	config.Level = zap.NewAtomicLevelAt(zapLevel(level))
+	config.Level = zapLevel(level)
 	logger, _ := config.Build()
 	return logger
 }
 
 func zapLevel(level string) zap.AtomicLevel {
+	atomicLevel := zap.NewAtomicLevel()
+
 	switch level {
 	case "debug":
-		return zap.NewAtomicLevelAt(zap.DebugLevel)
+		atomicLevel.SetLevel(zapcore.DebugLevel)
 	case "warn":
-		return zap.NewAtomicLevelAt(zap.WarnLevel)
+		atomicLevel.SetLevel(zapcore.WarnLevel)
 	case "error":
-		return zap.NewAtomicLevelAt(zap.ErrorLevel)
+		atomicLevel.SetLevel(zapcore.ErrorLevel)
 	default:
-		return zap.NewAtomicLevelAt(zap.InfoLevel)
+		atomicLevel.SetLevel(zapcore.InfoLevel)
 	}
+
+	return atomicLevel
 }
